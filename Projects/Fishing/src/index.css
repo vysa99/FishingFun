@@ -1,0 +1,281 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+a {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.width-container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header, section, aside, footer, p, span, h1, h2, h3, th, td, option, select, label {
+    font-family: 'Helvetica';
+    font-style: italic;
+    color: #00BFFF;
+}
+
+header {
+    background-color: #98FB98;
+    height: 100px;
+    border-color: #00BFFF;
+    border-width: 0 0 1px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+.main-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-color: #00BFFF;
+    border-width: 0 0 1px;
+    border-style: solid;
+    box-sizing: border-box;
+    display: inline-flex;
+}
+
+.main-actions {
+    position: relative;    
+    display: inline-block;
+    width: 80%; 
+    background-color: #AFEEEE;  
+    min-height: 100%;
+}
+
+section {
+    position: relative;
+    background-color: #AFEEEE;
+    width: calc(100%-10px);
+    height: auto;
+    margin: 5px;
+}
+
+.unavailable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+    transition: all linear 0.5s;
+}
+
+.unavailable p {
+    margin: 0;
+    color: gray;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.unavailable.ng-hide {
+    opacity: 0;
+}
+
+.my-location {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5px;
+    border-width: 0 0 1px;
+    border-style: dashed;
+    box-sizing: border-box;
+    border-color: #00BFFF;
+}
+
+.my-location > p {
+    margin: 0;
+}
+
+.my-location-value, .my-location h1 {
+    display: inline;
+    height: 100%;
+    font-size: 24px;
+}
+
+.button-sprite {
+    margin: 0;
+    position: relative;
+    width: 140px;
+    height: 34px;
+    background-image: url("images/button.png");
+    overflow: hidden;
+    display: inline-block;
+}
+
+.button-sprite:hover {
+    background-position: -150px 0;
+}
+
+.button-sprite:active {
+    background-position: -300px 0;
+}
+
+.go-fishing {
+    left: 135px;
+}
+
+.change-gear {
+    left: 225px;
+}
+
+.button-text {
+    position: relative;
+    color: #98FB98;    
+    margin: 5px;
+    font-size: 18px;
+    text-align: center;
+    top: 3px;
+    -webkit-user-select: none;
+}
+
+.value-color, .current-location-tag {
+    color: #FF7F50;    
+}
+
+.catch-log h2 {
+    font-size: 16px;
+    margin: 5px;   
+    display: inline; 
+}
+
+.trophy-description {
+    font-size: 16px;
+    margin: 5px;
+    display: inline; 
+}
+
+.fishing-location, .catch-log-entry, .one-location-photo {
+    position: relative;
+    margin: 5px;
+    border: 1px;
+    border-color: #00BFFF;
+    border-style: solid;
+    width: calc(25% - 16px);    
+    height: 160px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.open-location {
+    position: absolute;
+}
+
+.image-bottom-comment, .image-top-comment {
+    color: #98FB98;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 3px 0;
+    margin: 0;
+    font-size: 14px;
+    transition: all linear 0.4s;    
+}
+
+.image-bottom-comment.ng-hide {
+    transform: translateY(100%);    
+}
+
+.image-top-comment.ng-hide {
+    transform: translateY(-100%);    
+}
+
+.image-top-comment {
+    top: 0px;
+}
+
+.image-bottom-comment {
+    bottom: 0px;
+}
+
+.current-location-tag {
+    font-style: bold;
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    margin: 0;
+    transform: rotate(330deg);
+    text-shadow: 1px 1px white;
+}
+
+aside {
+    position: relative;
+    display: inline-block;
+    width: calc(20% - 10px);
+    background-color: #AFEEEE;
+    padding: 0 0 0 10px;
+    min-height: 100%;
+}
+
+aside h1 {
+    padding: 0 0 5px;
+    border-width: 0 0 1px;
+    border-style: dashed;
+    box-sizing: border-box;
+    border-color: #00BFFF;
+}
+
+aside h2 {
+    margin: 10px 5px;
+    font-size: 16px;
+}
+
+aside tr {
+    height: 32px;
+}
+
+aside p {
+    margin: 15px 5px;
+}
+
+.gear-line-title {
+    width: 70px;
+}
+
+.log-line-title {
+    width: 120px;
+}
+
+h1, label {
+    margin: 5px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#logo_image {
+    margin: 2px 0 0 10px;
+}
+
+footer {
+    background-color: rgba(0,0,0,0.2);
+    clear: left;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.fillWidth { 
+  width: 100%; 
+  height: auto; 
+}
+
+.fillHeight {  
+  height: 100%; 
+  width: auto; 
+}
+
+select {
+  margin-left: 5px;
+  width: 140px;
+}
