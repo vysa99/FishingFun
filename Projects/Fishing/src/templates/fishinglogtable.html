@@ -1,0 +1,19 @@
+<div>
+	<h2>{{fishingLogEntry.title}}</h2> 
+	<p ng-if="+fishingLogEntry.totalFish == 0">Lazy time</p>
+	<table ng-if="+fishingLogEntry.totalFish > 0">
+		<tr>
+			<td class="log-line-title">Total fish</td>
+			<td class="value-color">{{fishingLogEntry.totalFish}}</td>
+		</tr>
+		<tr>
+			<td class="log-line-title">Total weight</td>
+			<td class="value-color" ng-if="+fishingLogEntry.totalWeight < 1000">{{fishingLogEntry.totalWeight}} grams</td>
+			<td class="value-color" ng-if="+fishingLogEntry.totalWeight >= 1000">{{(fishingLogEntry.totalWeight/1000).toFixed(2)}} kilo</td>
+		</tr>
+		<tr>
+			<td class="log-line-title">Locations visited</td>
+			<td class="value-color">{{fishingLogEntry.locationsCounter}}</td>
+		</tr>
+	</table>
+</div>

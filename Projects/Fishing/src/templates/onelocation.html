@@ -1,0 +1,7 @@
+<div class="fishing-location" ng-mouseenter="mouseOn=true" ng-mouseleave="mouseOn=false" ng-click="ffOFLController.goIfActive(fishingLocation)">
+	<ff-one-small-photo photo="'images/'+fishingLocation.locationPhoto"></ff-one-small-photo>
+	<p class="image-bottom-comment" ng-show="mouseOn && !fishingLocation.unavailable">{{fishingLocation.locationTitle}}</p>
+	<div class="unavailable" ng-if="fishingLocation.unavailable" ng-show="mouseOn">
+		<p ng-show="mouseOn">UNAVAILABLE</p>
+	</div>
+</div>
