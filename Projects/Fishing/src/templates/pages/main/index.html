@@ -1,0 +1,80 @@
+<div class="main-content"><!--
+	--><div class="main-actions">
+		<div class="my-location" ng-controller="currentLocationController as crCtrl">
+			<form action="">
+				<label for="my-location-value">My current country:</label>
+				<select class="my-location-value" name="my-location-value" ng-model="crCtrl.currentCountry" ng-change="crCtrl.changeCurrentCountry()">
+					<option ng-repeat="country in crCtrl.getFishingCountries()" value="{{country}}">{{country}}</option>
+				</select>
+			</form>
+			<div class="go-fishing button-sprite">
+				<p class="button-text">Go fishing!</p>
+			</div> 
+			<div class="change-gear button-sprite"> 						
+				<p class="button-text">Change gear</p>
+			</div> 
+		</div>
+		<section class="fishing-locations" ng-controller="fishingLocationsController as flCtrl">
+			<h1>Fishing locations</h1>
+			<ff-one-fishing-location ng-repeat="fishingLocation in flCtrl.getFishingLocations()"></ff-one-fishing-location>
+		</section>
+	</div><!--
+	--><aside class="equipped-gear">
+		<h1>Equipped gear</h1>
+		<table>
+		  <tr>
+		    <td class="gear-line-title">Boat</td>
+		    <td class="value-color">none</td> 
+		  </tr>
+		  <tr>
+		    <td>Rod</td>
+		    <td class="value-color">none</td> 
+		  </tr>
+		  <tr>
+		    <td>Reel</td>
+		    <td class="value-color">none</td> 
+		  </tr>
+		  <tr>
+		    <td>Line</td>
+		    <td class="value-color">none</td> 
+		  </tr>
+		  <tr>
+		    <td>Tackle</td>
+		    <td class="value-color">none</td> 
+		  </tr>
+		  <tr>
+		    <td>Bait</td>
+		    <td class="value-color">none</td> 
+		  </tr>	
+		  <tr>
+		    <td>Other</td>
+		    <td class="value-color">none</td> 
+		  </tr>						  				  					  					  					  
+		</table>				
+	</aside>
+</div>
+<div class="main-content"><!--
+	--><div class="main-actions">
+		<section class="catch-log" ng-controller="catchLogController as clCtrl">
+			<h1>Catch log</h1>
+			<p ng-show="trophyVisible">
+				<h2>Trophy catch</h2>
+				<span>On <span class="value-color">{{clCtrl.getBiggestFishCatch().catchDate}}</span> in 
+				<span class="value-color">{{clCtrl.getFishingLocationById(clCtrl.getBiggestFishCatch().catchLocation).locationTitle}}</span> caught the 
+				<span class="value-color">{{clCtrl.getBiggestFish().fishName}}</span> which length was
+				<span class="value-color">{{clCtrl.getBiggestFishCatch().catchLength+" cm"}}</span> and weight of 
+				<span class="value-color">{{(clCtrl.getBiggestFishCatch().catchWeigth/1000 | number:2) +" kilo"}}</span>!
+				</span>
+			</p>
+			<ff-catch-log-item ng-repeat="catchLogItem in clCtrl.getCatchLog()"></ff-catch-log-item>
+		</section>
+		<section class="location-photos" ng-controller="flickerCountryController as fcCtrl">
+			<h1>{{fcCtrl.location + " random photos from Flickr.com"}}</h1>
+			<ff-one-country-photo ng-repeat="oneCountryPhoto in fcCtrl.countryPhotos"></ff-one-country-photo>
+		</section>
+	</div><!--
+	--><aside class="fishing-log" ng-controller="fishingLogController as flCtrl">
+	    <h1>Fishing log</h1>
+	    <ff-fishing-log-table ng-repeat="fishingLogEntry in flCtrl.fishingLog"></ff-fishing-log-table>
+	</aside>
+</div>

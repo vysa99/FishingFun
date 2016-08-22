@@ -23,7 +23,7 @@ function diffDays(date1, date2) {
 	return Math.ceil(timeDiff / (1000 * 3600 * 24));
 };
 
-angular.module('FishingFun', ['ngAnimate'])
+angular.module('FishingFun', ['ngAnimate', 'ngRoute', 'ngResource'])
 
 .factory('myDataService', function() {
   	var service = {};
@@ -42,6 +42,14 @@ angular.module('FishingFun', ['ngAnimate'])
 		for (var i = 0; i<service.fishingLocations.length ; i++) {
 			if (service.fishingLocations[i].locationId == id) { 
 				return service.fishingLocations[i];
+			}
+		}
+		return null;
+	};
+	service.getFishyById = function(id) {
+		for (var i = 0; i<service.fishy.length ; i++) {
+			if (service.fishy[i].fishId == id) { 
+				return service.fishy[i];
 			}
 		}
 		return null;
@@ -102,10 +110,24 @@ angular.module('FishingFun', ['ngAnimate'])
   }
 })
 
+.directive('ffLogo', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/logo.html',
+	replace: true, 
+    controller: ['$location', function($location) {
+    	this.go = function() {
+   			$location.path("/").search({});
+   		};
+    }],
+    controllerAs: 'ffLogo'
+  };
+})
+
 .directive('ffOneSmallPhoto', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/onesmallphoto.html',
+    templateUrl: 'templates/pages/main/onesmallphoto.html',
     replace: true,
     scope: {
     	photo: '='
@@ -130,18 +152,17 @@ angular.module('FishingFun', ['ngAnimate'])
 .directive('ffOneFishingLocation', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/onelocation.html',
+    templateUrl: 'templates/pages/main/onelocation.html',
 	replace: true, 
     link: function(scope, elem, attrs) {
-//    	console.log(scope.$parent.fishingLocationsCtrl);
     },
     controller: ['$location', function($location) {
     	var controller = this;
 
     	this.goIfActive = function(fishingLocation) {
-    		console.log(fishingLocation);
     		if (!fishingLocation.unavailable) {
-    			$location.path("location/"+fishingLocation.locationId);
+    			$location.path("/location")
+    					 .search({id: fishingLocation.locationId});
     		};
     	};
     }],
@@ -152,15 +173,16 @@ angular.module('FishingFun', ['ngAnimate'])
 .directive('ffCatchLogItem', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/catchlogitem.html',
+    templateUrl: 'templates/pages/main/catchlogitem.html',
 	replace: true,
     link: function(scope, elem, attrs) {
     },
     controller: ['$location', function($location) {
     	var controller = this;
 
-    	this.go = function(path) {
-    		$location.path("fish/"+path);
+    	this.go = function(fishId) {
+    		$location.path("/fish")
+    				 .search({id: fishId});
     	};
     }],
     controllerAs: 'ffCLIController'
@@ -170,7 +192,7 @@ angular.module('FishingFun', ['ngAnimate'])
 .directive('ffOneCountryPhoto', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/countryphoto.html',
+    templateUrl: 'templates/pages/main/countryphoto.html',
 	replace: true, 
     link: function(scope, elem, attrs) {
 //    	console.log(scope.$parent.fishingLocationsCtrl);
@@ -181,7 +203,7 @@ angular.module('FishingFun', ['ngAnimate'])
 .directive('ffFishingLogTable', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/fishinglogtable.html',
+    templateUrl: 'templates/pages/main/fishinglogtable.html',
 	replace: true,
     link: function(scope, elem, attrs) {
     }
@@ -214,8 +236,14 @@ angular.module('FishingFun', ['ngAnimate'])
 
 	// initial setting - first countries array entry
 	$rootScope.$on('fishingCountriesReady', function() {
-		controller.currentCountry = myDataService.fishingCountries[0];
-		myDataService.currentCountry = controller.currentCountry;
+		if (myDataService.currentCountry == null) {
+			// current country not yet selected - select the first one from the list
+			controller.currentCountry = myDataService.fishingCountries[0];
+			myDataService.currentCountry = controller.currentCountry;
+		}
+		else {
+			controller.currentCountry = myDataService.currentCountry;
+		}
 
 		$rootScope.$broadcast('loadCountryPhotos');
 	});
