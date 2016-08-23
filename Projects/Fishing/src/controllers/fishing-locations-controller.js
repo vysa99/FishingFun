@@ -1,12 +1,13 @@
 angular.module('FishingFun')
 
-.controller('fishingLocationsController', ['$rootScope', 'myDataService', 'requestFactory', function ($rootScope, myDataService, requestFactory) {
+.controller('fishingLocationsController', ['$rootScope', 'utilityService', 'myDataService', 'requestFactory', 
+	function ($rootScope, utilityService, myDataService, requestFactory) {
 	var controller = this;
 	controller.getFishingLocations = myDataService.getFishingLocations;
 
 	requestFactory.fishingLocationsRequest
 		.then(function(readLocations) {
-			myDataService.fishingLocations = readLocations.data.sort(arraySorter('locationId', true));
+			myDataService.fishingLocations = readLocations.data.sort(utilityService.arraySorter('locationId', true));
 
 			for (var i = 0; i < myDataService.fishingLocations.length; i++) { 
 				var thisCountry = myDataService.fishingLocations[i].locationCountry;

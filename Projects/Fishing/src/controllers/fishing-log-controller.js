@@ -1,6 +1,7 @@
 angular.module('FishingFun')
 
-.controller('fishingLogController', ['$rootScope', 'myDataService', function ($rootScope, myDataService) {
+.controller('fishingLogController', ['$rootScope', 'utilityService', 'myDataService', 
+	function ($rootScope, utilityService, myDataService) {
 	var controller = this;
    	controller.fishingLog = [];
 
@@ -30,7 +31,7 @@ angular.module('FishingFun')
 		controller.fishingLog.push({title: "Today", totalFish, totalWeight, locationsCounter});
 
 	// This week catch
-		while (catchLog.length > i && diffDays(todayDate, catchDate) <= 7) {
+		while (catchLog.length > i && utilityService.diffDays(todayDate, catchDate) <= 7) {
 	// update log counters
 			totalFish += 1;
 	   		totalWeight += catchLog[i].catchWeigth;
@@ -44,7 +45,7 @@ angular.module('FishingFun')
 		controller.fishingLog.push({title: "This Week", totalFish, totalWeight, locationsCounter});
 
 	// This month catch
-		while (catchLog.length > i && diffDays(todayDate, catchDate) <= 30) {
+		while (catchLog.length > i && utilityService.diffDays(todayDate, catchDate) <= 30) {
 	// update log counters
 			totalFish += 1;
 	   		totalWeight += catchLog[i].catchWeigth;
@@ -58,7 +59,7 @@ angular.module('FishingFun')
 		controller.fishingLog.push({title: "This Month", totalFish, totalWeight, locationsCounter});
 
 	// This year catch
-		while (catchLog.length > i && diffDays(todayDate, catchDate) <= 365) {
+		while (catchLog.length > i && utilityService.diffDays(todayDate, catchDate) <= 365) {
 	// update log counters
 			totalFish += 1;
 	   		totalWeight += catchLog[i].catchWeigth;

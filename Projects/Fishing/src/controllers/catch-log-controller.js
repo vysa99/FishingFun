@@ -1,6 +1,7 @@
 angular.module('FishingFun')
 
-.controller('catchLogController', ['$q', '$filter', '$rootScope', 'myDataService', 'requestFactory', function ($q, $filter, $rootScope, myDataService, requestFactory) {
+.controller('catchLogController', ['$q', '$filter', '$rootScope', 'utilityService', 'myDataService', 'requestFactory', 
+	function ($q, $filter, $rootScope, utilityService, myDataService, requestFactory) {
 	var controller = this;
 	// functions to be used in view
 	controller.getBiggestFishCatch = myDataService.getBiggestFishCatch;
@@ -33,7 +34,7 @@ angular.module('FishingFun')
 
 	$q.all([requestFactory.catchLogRequest, requestFactory.fishRequest])
 		.then(function(readLocations) {
-			myDataService.catchLog = readLocations[0].data.sort(arraySorter('catchDate', false));
+			myDataService.catchLog = readLocations[0].data.sort(utilityService.arraySorter('catchDate', false));
 			$rootScope.$broadcast('catchLogReady'); // event for another view elements
 
 			myDataService.fishy = readLocations[1].data;

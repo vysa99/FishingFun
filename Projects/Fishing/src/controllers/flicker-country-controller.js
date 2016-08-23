@@ -1,6 +1,7 @@
 angular.module('FishingFun')
 
-.controller('flickerCountryController', ['$rootScope', 'requestFactory', 'myDataService', function ($rootScope, requestFactory, myDataService) {
+.controller('flickerCountryController', ['$rootScope', 'requestFactory', 'utilityService', 'myDataService', 
+	function ($rootScope, requestFactory, utilityService, myDataService) {
 	var controller = this;
 	controller.countryPhotos = [];
 	var randomNumbers = [];
@@ -15,7 +16,7 @@ angular.module('FishingFun')
 
 	// select 4 random photo numbers
 			while (randomNumbers.length < 4 && randomNumbers.length < locationPhotos.length) {
-				var random = getRandomInt(0, locationPhotos.length);
+				var random = utilityService.getRandomInt(0, locationPhotos.length);
 				if (randomNumbers.indexOf(random) == -1) { 
 					randomNumbers.push(random); }
 			};

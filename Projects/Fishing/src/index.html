@@ -9,12 +9,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>	
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>	
 	</head>
-	<body>
-		<div class="width-container">
-			<ff-header></ff-header>
-			<div ng-view></div>
-			<ff-footer></ff-footer>
-		</div>
+	<body class="width-container">
+		<ff-header></ff-header>
+		<div ng-view></div>
+		<ff-footer></ff-footer>
 		<script src="index.js"></script>
 		<script src="routes.js"></script>
 		<script src="controllers/catch-log-controller.js"></script>
@@ -33,6 +31,7 @@
 		<script src="directives/ff-fishing-log-table.js"></script>
 		<script src="filters/array-property-finder.js"></script>
 		<script src="services/my-data-service.js"></script>
+		<script src="services/utility-service.js"></script>
 		<script src="services/request-factory.js"></script>
 	</body>
 </html>
