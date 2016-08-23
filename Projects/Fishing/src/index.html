@@ -3,7 +3,7 @@
 	<head>
 		<title>Fishing Fun!</title>
 		<meta name="description" content="Funny fishing game" />
-		<link rel="stylesheet" href="index.css" />
+		<link rel="stylesheet" href="styles/index.css" />
  		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>	
@@ -11,16 +11,28 @@
 	</head>
 	<body>
 		<div class="width-container">
-			<ff-logo></ff-logo>
+			<ff-header></ff-header>
 			<div ng-view></div>
-			<footer class="basic-text">
-				<span>Copyright 2016 ©</span>
-				<a href="mailto:vysa99@gmail.com">vysa99@gmail.com</a>
-			</footer>
+			<ff-footer></ff-footer>
 		</div>
 		<script src="index.js"></script>
 		<script src="routes.js"></script>
-		<script src="templates/pages/location/index.js"></script>
-		<script src="templates/pages/fish/index.js"></script>
+		<script src="controllers/catch-log-controller.js"></script>
+		<script src="controllers/current-location-controller.js"></script>
+		<script src="controllers/fishing-locations-controller.js"></script>
+		<script src="controllers/fishing-log-controller.js"></script>
+		<script src="controllers/flicker-country-controller.js"></script>
+		<script src="controllers/fish-description-controller.js"></script>
+		<script src="controllers/location-description-controller.js"></script>
+		<script src="directives/ff-header.js"></script>
+		<script src="directives/ff-footer.js"></script>
+		<script src="directives/ff-one-small-photo.js"></script>
+		<script src="directives/ff-one-fishing-location.js"></script>
+		<script src="directives/ff-catch-log-item.js"></script>
+		<script src="directives/ff-one-country-photo.js"></script>
+		<script src="directives/ff-fishing-log-table.js"></script>
+		<script src="filters/array-property-finder.js"></script>
+		<script src="services/my-data-service.js"></script>
+		<script src="services/request-factory.js"></script>
 	</body>
 </html>

@@ -1,13 +1,13 @@
 angular.module('FishingFun')
 .config(function($routeProvider) {
 	$routeProvider.when('/', {
-		templateUrl: 'templates/pages/main/index.html'
+		templateUrl: 'views/main.html'
 	})
 	.when('/location', {
-		templateUrl: 'templates/pages/location/index.html'
+		templateUrl: 'views/location.html'
 	})
 	.when('/fish', {
-		templateUrl: 'templates/pages/fish/index.html'
+		templateUrl: 'views/fish.html'
 	})
 	.otherwise({redirectTo: '/'});
 });

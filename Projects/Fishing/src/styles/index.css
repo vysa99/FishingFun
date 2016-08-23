@@ -107,7 +107,7 @@ section {
     position: relative;
     width: 140px;
     height: 34px;
-    background-image: url("images/button.png");
+    background-image: url("../assets/controls/button.png");
     overflow: hidden;
     display: inline-block;
 }

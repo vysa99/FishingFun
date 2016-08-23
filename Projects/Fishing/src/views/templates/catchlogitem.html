@@ -1,5 +1,5 @@
 <div class="catch-log-entry" ng-mouseenter="showComments=true;" ng-mouseleave="showComments=false;" ng-click="ffCLIController.go(catchLogItem.catchFishId)">
-	<ff-one-small-photo photo="'images/'+catchLogItem.catchFishPhoto"></ff-one-small-photo>
+	<ff-one-small-photo photo="'assets/images/'+catchLogItem.catchFishPhoto"></ff-one-small-photo>
 	<p class="image-top-comment" ng-show="showComments">{{catchLogItem.catchFishName}}</p>
 	<p class="image-bottom-comment" ng-show="showComments">{{catchLogItem.catchFishSpecsText}}</p>
 </div>
