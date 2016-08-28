@@ -67,6 +67,7 @@ section {
     background-color: rgba(0,0,0,0.7);
     text-align: center;
     transition: all linear 0.5s;
+    cursor: auto;
 }
 
 .unavailable p {
@@ -164,6 +165,8 @@ section {
     height: 160px;
     display: inline-block;
     overflow: hidden;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .open-location {
@@ -256,6 +259,7 @@ h1, label {
 
 #logo_image {
     margin: 2px 0 0 10px;
+    cursor: pointer;
 }
 
 footer {
