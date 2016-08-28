@@ -1,0 +1,137 @@
+hr {
+  width: 50%;
+}
+
+.navbar-fixed-top {
+  background-color: #3D9AD1;
+  border: none;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.55);
+}
+
+#title {
+  font-size: 24px;
+  color: white;
+  margin: 10px 0;
+}
+
+.nav > li > a {
+  margin: 15px 5px;
+  color: #03436A;
+}
+
+.nav > li > a:active {
+  background-color: #0969A3;
+}
+
+.nav > li > a:focus, 
+.nav > li > a:hover {
+  background-color: #AFD1E6;
+}
+
+main {
+  background-color: #AFD1E6;
+  margin: 70px 0 0 0;
+  border: none;
+}
+
+.about-container {
+  background-color: #64A8D1;
+}
+
+.introduction {
+  padding: 60px 40px;
+  display: inline-block;
+}
+
+.introduction p {
+  color: white;
+  text-align: justify;
+  font-size: 20px;
+}
+
+.introduction .skills {
+  color: white;
+  text-align: center;
+  font-size: 24px;
+}
+
+.introduction hr {
+  border: none;
+  border-top: solid 3px white;
+}
+
+.vysa99 img {
+  height: 280px;
+  border-radius: 50%;
+  margin: 60px auto;
+}
+
+.portfolio-container, .contact-container {
+  background-color: white;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,255,0.55);
+  margin-bottom: 1px;
+}
+
+.portfolio-container h2, .contact-container h2 {
+  color: #64A8D1;
+  font-weight: bold;
+  text-align: center;
+  padding: 30px;
+}
+
+.portfolio-container hr, .contact-container hr {
+  border: none;
+  border-top: solid 3px #64A8D1;
+  margin-bottom: 50px;
+}
+
+.portfolio-entries {
+  display: inline-flex;
+}
+
+.portfolio-entries li {
+  max-width: 500px;
+  margin: 20px;
+  color: #64A8D1;
+  text-align: center;
+  font-size: 20px;
+}
+
+.portfolio-entries li img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.contact-container {
+  padding-bottom: 40px; 
+}
+
+.contact-container p {
+  color: #64A8D1;
+  font-size: 20px;
+}
+
+footer {
+  padding: 50px 0;
+  height: 200px;
+  background-color: #64A8D1;
+  margin: 0;
+  border: none;
+}
+
+footer p {
+  color: white;
+  font-size: 16px;
+}
+
+footer .fa {
+  font-size: 64px;
+  letter-spacing: 10px;
+  color: #0969A3;
+}
+
+footer .fa:focus, 
+footer .fa:hover {
+  color: #AFD1E6;
+  transition: all 0.4s ease-out;
+}
